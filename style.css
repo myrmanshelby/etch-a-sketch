@@ -1,0 +1,16 @@
+.board {
+  width: 600px;
+  height: 600px;
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  background-color: white;
+  border: solid black;
+  margin: 1px;
+  width: 10px;
+  height: 10px;
+}
