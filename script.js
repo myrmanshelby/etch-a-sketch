@@ -7,8 +7,12 @@ function createGrid(squaresPerSide) {
   }
 
   const board = document.querySelector(".board");
-  let width = squaresPerSide * 10;
-  let height = squaresPerSide * 10;
+  const square = document.querySelector(".square");
+  let squareWidth = square.offsetWidth;
+  let squareHeight = square.offsetHeight;
+
+  let width = squaresPerSide * squareWidth;
+  let height = squaresPerSide * squareHeight;
   board.setAttribute(
     "style",
     "width: " + width + "px; height: " + height + "px;"
@@ -35,4 +39,4 @@ function createSquare(rowID) {
   row.appendChild(square);
 }
 
-createGrid(10);
+createGrid(40);
