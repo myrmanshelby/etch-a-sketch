@@ -1,6 +1,5 @@
 .board {
-  width: 600px;
-  height: 600px;
+  border: solid black;
 }
 
 .row {
@@ -9,8 +8,7 @@
 
 .square {
   background-color: white;
-  border: solid black;
-  margin: 1px;
+  margin: 0px;
   width: 10px;
   height: 10px;
 }

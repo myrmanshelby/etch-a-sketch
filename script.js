@@ -5,6 +5,14 @@ function createGrid(squaresPerSide) {
       createSquare(row);
     }
   }
+
+  const board = document.querySelector(".board");
+  let width = squaresPerSide * 10;
+  let height = squaresPerSide * 10;
+  board.setAttribute(
+    "style",
+    "width: " + width + "px; height: " + height + "px;"
+  );
 }
 
 function createRow(rowID) {
@@ -27,4 +35,4 @@ function createSquare(rowID) {
   row.appendChild(square);
 }
 
-createGrid(20);
+createGrid(10);
