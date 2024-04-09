@@ -27,4 +27,4 @@ function createSquare(rowID) {
   row.appendChild(square);
 }
 
-createGrid(16);
+createGrid(20);
