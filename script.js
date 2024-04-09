@@ -6,17 +6,28 @@ function createGrid(squaresPerSide) {
     }
   }
 
-  const board = document.querySelector(".board");
-  const square = document.querySelector(".square");
-  let squareWidth = square.offsetWidth;
-  let squareHeight = square.offsetHeight;
+  setSquareDimensions(squaresPerSide);
+}
 
-  let width = squaresPerSide * squareWidth;
-  let height = squaresPerSide * squareHeight;
-  board.setAttribute(
-    "style",
-    "width: " + width + "px; height: " + height + "px;"
-  );
+function setSquareDimensions(squaresPerSide) {
+  const board = document.querySelector(".board");
+  const boardStyle = window.getComputedStyle(board);
+  const squares = document.querySelectorAll(".square");
+
+  let boardWidth = boardStyle.getPropertyValue("width");
+  boardWidth = boardWidth.substring(0, boardWidth.indexOf("p"));
+  let boardHeight = boardStyle.getPropertyValue("height");
+  boardHeight = boardHeight.substring(0, boardHeight.indexOf("p"));
+
+  let squareWidth = boardWidth / squaresPerSide;
+  let squareHeight = boardHeight / squaresPerSide;
+
+  squares.forEach((square) => {
+    square.setAttribute(
+      "style",
+      "width: " + squareWidth + "px; height: " + squareHeight + "px;"
+    );
+  });
 }
 
 function createRow(rowID) {
@@ -39,15 +50,15 @@ function createSquare(rowID) {
   row.appendChild(square);
 }
 
-function allowSketch() {
+function allowSketch(color) {
   const squares = document.querySelectorAll(".square");
   squares.forEach((square) => {
     square.addEventListener("mouseover", () => {
-      square.style.backgroundColor = "black";
+      square.style.backgroundColor = color;
     });
   });
 }
 
-createGrid(80);
+createGrid(50);
 
-allowSketch();
+allowSketch("black");
