@@ -1,3 +1,10 @@
+/* TO DO TOMORROW:
+-Create a remove grid function -> begin w/ 16x16 grid and clear grid whenever slider is submitted
+-Add slider button that calls removeGride, then createGrid with slider input as argument
+-Add button that clears etch-a-sketch
+-Add button that allows drawing for etch-a-sketch
+-Add button that allows random color */
+
 function createGrid(squaresPerSide) {
   for (row = 0; row < squaresPerSide; row++) {
     createRow(row);
@@ -59,6 +66,6 @@ function allowSketch(color) {
   });
 }
 
-createGrid(50);
+createGrid(100);
 
 allowSketch("black");

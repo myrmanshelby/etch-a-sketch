@@ -14,3 +14,21 @@
   width: 5px;
   height: 5px;
 }
+
+.slider {
+  appearance: none;
+  width: 200px;
+  height: 20px;
+  background: gray;
+  outline: none;
+  border-radius: 12px;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
