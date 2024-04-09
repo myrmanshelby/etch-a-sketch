@@ -39,4 +39,15 @@ function createSquare(rowID) {
   row.appendChild(square);
 }
 
-createGrid(40);
+function allowSketch() {
+  const squares = document.querySelectorAll(".square");
+  squares.forEach((square) => {
+    square.addEventListener("mouseover", () => {
+      square.style.backgroundColor = "black";
+    });
+  });
+}
+
+createGrid(80);
+
+allowSketch();
