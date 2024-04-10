@@ -6,6 +6,11 @@
 -Add button that allows random color */
 
 function createGrid(squaresPerSide) {
+  const board = document.createElement("div");
+  const game = document.querySelector(".game");
+  board.classList.add("board");
+  game.appendChild(board);
+
   for (row = 0; row < squaresPerSide; row++) {
     createRow(row);
     for (col = 0; col < squaresPerSide; col++) {
@@ -14,6 +19,12 @@ function createGrid(squaresPerSide) {
   }
 
   setSquareDimensions(squaresPerSide);
+}
+
+function removeGrid() {
+  const game = document.querySelector(".game");
+  const board = document.querySelector(".board");
+  game.removeChild(board);
 }
 
 function setSquareDimensions(squaresPerSide) {
@@ -66,6 +77,12 @@ function allowSketch(color) {
   });
 }
 
-createGrid(100);
-
+let slider = document.getElementById("number-of-squares");
+createGrid(slider.value);
 allowSketch("black");
+
+slider.oninput = function () {
+  removeGrid();
+  createGrid(this.value);
+  allowSketch("black");
+};

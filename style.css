@@ -22,6 +22,7 @@
   background: gray;
   outline: none;
   border-radius: 12px;
+  direction: rtl;
 }
 
 .slider::-webkit-slider-thumb {
