@@ -4,6 +4,10 @@
 -Add button that clears etch-a-sketch
 -Add button that allows drawing for etch-a-sketch
 -Add button that allows random color */
+initializeGrid();
+allowChangePenSize();
+enableEraseButton();
+enableSketchButton();
 
 function createGrid(squaresPerSide) {
   const board = document.createElement("div");
@@ -71,18 +75,41 @@ function createSquare(rowID) {
 function allowSketch(color) {
   const squares = document.querySelectorAll(".square");
   squares.forEach((square) => {
-    square.addEventListener("mouseover", () => {
+    square.addEventListener("mouseover", function addColor() {
       square.style.backgroundColor = color;
     });
   });
 }
 
-let slider = document.getElementById("number-of-squares");
-createGrid(slider.value);
-allowSketch("black");
+function addColorToSquare() {
+  square.style.backgroundColor = color;
+}
 
-slider.oninput = function () {
-  removeGrid();
-  createGrid(this.value);
-  allowSketch("black");
-};
+function allowChangePenSize() {
+  let slider = document.getElementById("number-of-squares");
+  slider.oninput = function () {
+    removeGrid();
+    createGrid(this.value);
+  };
+}
+
+function initializeGrid() {
+  let slider = document.getElementById("number-of-squares");
+  createGrid(slider.value);
+}
+
+function enableSketchButton() {
+  const sketchBtn = document.querySelector("#sketch-btn");
+  const buttons = document.querySelector(".buttons");
+
+  sketchBtn.addEventListener("click", () => {
+    allowSketch("black");
+  });
+}
+
+function enableEraseButton() {
+  const eraseBtn = document.querySelector("#erase-btn");
+  eraseBtn.addEventListener("click", () => {
+    allowSketch("white");
+  });
+}

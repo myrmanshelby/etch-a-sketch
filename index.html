@@ -11,17 +11,25 @@
   <body>
     <h1>Etch-a-Sketch</h1>
     <div class="game"></div>
-    <div>
-      <p>Adjust Pen Size:</p>
-      <input
-        type="range"
-        class="slider"
-        id="number-of-squares"
-        name="number-of-squares"
-        min="2"
-        max="100"
-        value="16"
-      />
+    <div class="controls">
+      <div class="buttons">
+        <button type="button" id="sketch-btn">Sketch</button>
+        <button type="button" id="erase-btn">Erase</button>
+      </div>
+      <div class="pen-size">
+        <h3>Adjust Pen Size:</h3>
+        <p>Note: This will reset your art</p>
+        <input
+          type="range"
+          class="slider"
+          id="number-of-squares"
+          name="number-of-squares"
+          min="2"
+          max="100"
+          value="16"
+        />
+      </div>
+      <div class="color-choice"></div>
     </div>
   </body>
 </html>
