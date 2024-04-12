@@ -6,8 +6,12 @@
 -Add button that allows random color */
 initializeGrid();
 allowChangePenSize();
-enableEraseButton();
-enableSketchButton();
+allowRainbowSketch();
+
+// buttons
+// enableEraseButton();
+// enableSketchButton("black");
+// enableClearButton();
 
 function createGrid(squaresPerSide) {
   const board = document.createElement("div");
@@ -72,7 +76,7 @@ function createSquare(rowID) {
   row.appendChild(square);
 }
 
-function allowSketch(color) {
+function allowSolidSketch(color) {
   const squares = document.querySelectorAll(".square");
   squares.forEach((square) => {
     square.addEventListener("mouseover", function addColor() {
@@ -81,8 +85,14 @@ function allowSketch(color) {
   });
 }
 
-function addColorToSquare() {
-  square.style.backgroundColor = color;
+function allowRainbowSketch() {
+  const squares = document.querySelectorAll(".square");
+
+  squares.forEach((square) => {
+    square.addEventListener("mouseover", function addColor() {
+      square.style.backgroundColor = generateRandomRGBA();
+    });
+  });
 }
 
 function allowChangePenSize() {
@@ -98,12 +108,12 @@ function initializeGrid() {
   createGrid(slider.value);
 }
 
-function enableSketchButton() {
+function enableSketchButton(color) {
   const sketchBtn = document.querySelector("#sketch-btn");
   const buttons = document.querySelector(".buttons");
 
   sketchBtn.addEventListener("click", () => {
-    allowSketch("black");
+    allowSketch(color);
   });
 }
 
@@ -112,4 +122,28 @@ function enableEraseButton() {
   eraseBtn.addEventListener("click", () => {
     allowSketch("white");
   });
+}
+
+function enableClearButton() {
+  const clearBtn = document.querySelector("#clear-btn");
+  clearBtn.addEventListener("click", () => {
+    removeGrid();
+    initializeGrid();
+  });
+}
+
+function enableRainbowButton() {
+  const rainbowBtn = document.querySelector("#rainbow-btn");
+  rainbowBtn.addEventListener("click", () => {
+    enableSketchButton(generateRandomRGB());
+  });
+}
+
+function generateRandomRGBA() {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  let a = Math.random();
+
+  return "rgba(" + r + ", " + g + ", " + b + ", " + a + ")";
 }
