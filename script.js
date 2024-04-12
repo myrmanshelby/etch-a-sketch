@@ -1,16 +1,22 @@
 /* TO DO TOMORROW:
--Create a remove grid function -> begin w/ 16x16 grid and clear grid whenever slider is submitted
--Add slider button that calls removeGride, then createGrid with slider input as argument
--Add button that clears etch-a-sketch
--Add button that allows drawing for etch-a-sketch
--Add button that allows random color */
+- BUG: WHEN ERASE AND RAINBOW BUTTONS ARE CLICKED, IT'S IMPOSSIBLE TO 
+GO BACK TO SOLID COLOR. ERASE AND RAINBOW BUTTONS NEED TO CHANGE
+TO A TOGGLE, THAT ERASE OR DO RAINBOW WHEN ON, BUT DO SOLID SKETCH WHEN OFF
+
+Something like: 
+IF (toggle on):
+  allowErase/allowRainbowSketch
+IF (toggle off):
+  allowSolidSketch();
+
+then need toggle rainbow and erase off when reset is clicked or when pen size is changed
+*/
 initializeGrid();
 allowChangePenSize();
-//allowRainbowSketch();
+allowSolidSketch();
 
 // buttons
 enableEraseButton();
-enableSolidButton("black");
 enableClearButton();
 enableRainbowButton();
 
@@ -77,11 +83,13 @@ function createSquare(rowID) {
   row.appendChild(square);
 }
 
-function allowSolidSketch(color) {
+function allowSolidSketch() {
   const squares = document.querySelectorAll(".square");
+  let colorPicker = document.getElementById("color-picker");
+
   squares.forEach((square) => {
     square.addEventListener("mouseover", function addColor() {
-      square.style.backgroundColor = color;
+      square.style.backgroundColor = colorPicker.value;
     });
   });
 }
@@ -96,25 +104,28 @@ function allowRainbowSketch() {
   });
 }
 
+function allowErase() {
+  const squares = document.querySelectorAll(".square");
+
+  squares.forEach((square) => {
+    square.addEventListener("mouseover", function addColor() {
+      square.style.backgroundColor = "white";
+    });
+  });
+}
+
 function allowChangePenSize() {
   let slider = document.getElementById("number-of-squares");
   slider.oninput = function () {
     removeGrid();
     createGrid(this.value);
+    allowSolidSketch();
   };
 }
 
 function initializeGrid() {
   let slider = document.getElementById("number-of-squares");
   createGrid(slider.value);
-}
-
-function enableSolidButton(color) {
-  const solidBtn = document.querySelector("#solid-btn");
-
-  solidBtn.addEventListener("click", () => {
-    allowSolidSketch(color);
-  });
 }
 
 function enableRainbowButton() {
@@ -128,7 +139,7 @@ function enableRainbowButton() {
 function enableEraseButton() {
   const eraseBtn = document.querySelector("#erase-btn");
   eraseBtn.addEventListener("click", () => {
-    allowSketch("white");
+    allowErase();
   });
 }
 
@@ -137,6 +148,7 @@ function enableClearButton() {
   clearBtn.addEventListener("click", () => {
     removeGrid();
     initializeGrid();
+    allowSolidSketch();
   });
 }
 
