@@ -6,12 +6,13 @@
 -Add button that allows random color */
 initializeGrid();
 allowChangePenSize();
-allowRainbowSketch();
+//allowRainbowSketch();
 
 // buttons
-// enableEraseButton();
-// enableSketchButton("black");
-// enableClearButton();
+enableEraseButton();
+enableSolidButton("black");
+enableClearButton();
+enableRainbowButton();
 
 function createGrid(squaresPerSide) {
   const board = document.createElement("div");
@@ -108,12 +109,19 @@ function initializeGrid() {
   createGrid(slider.value);
 }
 
-function enableSketchButton(color) {
-  const sketchBtn = document.querySelector("#sketch-btn");
-  const buttons = document.querySelector(".buttons");
+function enableSolidButton(color) {
+  const solidBtn = document.querySelector("#solid-btn");
 
-  sketchBtn.addEventListener("click", () => {
-    allowSketch(color);
+  solidBtn.addEventListener("click", () => {
+    allowSolidSketch(color);
+  });
+}
+
+function enableRainbowButton() {
+  const rainbowBtn = document.querySelector("#rainbow-btn");
+
+  rainbowBtn.addEventListener("click", () => {
+    allowRainbowSketch();
   });
 }
 
@@ -129,13 +137,6 @@ function enableClearButton() {
   clearBtn.addEventListener("click", () => {
     removeGrid();
     initializeGrid();
-  });
-}
-
-function enableRainbowButton() {
-  const rainbowBtn = document.querySelector("#rainbow-btn");
-  rainbowBtn.addEventListener("click", () => {
-    enableSketchButton(generateRandomRGB());
   });
 }
 
