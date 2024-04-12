@@ -16,9 +16,9 @@ allowChangePenSize();
 allowSolidSketch();
 
 // buttons
-enableEraseButton();
+toggleEraseButton();
 enableClearButton();
-enableRainbowButton();
+toggleRainbowButton();
 
 function createGrid(squaresPerSide) {
   const board = document.createElement("div");
@@ -117,6 +117,8 @@ function allowErase() {
 function allowChangePenSize() {
   let slider = document.getElementById("number-of-squares");
   slider.oninput = function () {
+    resetRainbowErase();
+
     removeGrid();
     createGrid(this.value);
     allowSolidSketch();
@@ -128,28 +130,68 @@ function initializeGrid() {
   createGrid(slider.value);
 }
 
-function enableRainbowButton() {
+function toggleRainbowButton() {
   const rainbowBtn = document.querySelector("#rainbow-btn");
+  const eraseBtn = document.querySelector("#erase-btn");
+  let toggleOn = false;
 
   rainbowBtn.addEventListener("click", () => {
-    allowRainbowSketch();
+    if (toggleOn === false) {
+      allowRainbowSketch();
+      rainbowBtn.style.backgroundColor = "blue";
+      toggleOn = true;
+
+      eraseBtn.style.backgroundColor = "white";
+      toggleEraseButton();
+    } else {
+      allowSolidSketch();
+      rainbowBtn.style.backgroundColor = "white";
+      toggleOn = false;
+    }
   });
 }
 
-function enableEraseButton() {
+function toggleEraseButton() {
   const eraseBtn = document.querySelector("#erase-btn");
+  const rainbowBtn = document.querySelector("#rainbow-btn");
+  let toggleOn = false;
+
   eraseBtn.addEventListener("click", () => {
-    allowErase();
+    if (toggleOn === false) {
+      allowErase();
+      eraseBtn.style.backgroundColor = "blue";
+      toggleOn = true;
+
+      rainbowBtn.style.backgroundColor = "white";
+      toggleRainbowButton();
+    } else {
+      allowSolidSketch();
+      eraseBtn.style.backgroundColor = "white";
+      toggleOn = false;
+    }
   });
 }
 
 function enableClearButton() {
   const clearBtn = document.querySelector("#clear-btn");
+
   clearBtn.addEventListener("click", () => {
+    resetRainbowErase();
+
     removeGrid();
     initializeGrid();
     allowSolidSketch();
   });
+}
+
+function resetRainbowErase() {
+  const eraseBtn = document.querySelector("#erase-btn");
+  const rainbowBtn = document.querySelector("#rainbow-btn");
+
+  eraseBtn.style.backgroundColor = "white";
+  toggleEraseButton();
+  rainbowBtn.style.backgroundColor = "white";
+  toggleRainbowButton();
 }
 
 function generateRandomRGBA() {
