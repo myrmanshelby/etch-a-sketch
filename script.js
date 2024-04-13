@@ -97,7 +97,7 @@ function allowErase() {
 
   squares.forEach((square) => {
     square.addEventListener("mouseover", function addColor() {
-      square.style.backgroundColor = "white";
+      square.style.backgroundColor = "lightgray";
     });
   });
 }
@@ -126,14 +126,14 @@ function toggleRainbowButton() {
   rainbowBtn.addEventListener("click", () => {
     if (toggleOn === false) {
       allowRainbowSketch();
-      rainbowBtn.style.backgroundColor = "blue";
+      rainbowBtn.style.backgroundColor = "rgb(114, 242, 217)";
       toggleOn = true;
 
-      eraseBtn.style.backgroundColor = "white";
+      eraseBtn.style.backgroundColor = "lightgray";
       toggleEraseButton();
     } else {
       allowSolidSketch();
-      rainbowBtn.style.backgroundColor = "white";
+      rainbowBtn.style.backgroundColor = "lightgray";
       toggleOn = false;
     }
   });
@@ -147,14 +147,14 @@ function toggleEraseButton() {
   eraseBtn.addEventListener("click", () => {
     if (toggleOn === false) {
       allowErase();
-      eraseBtn.style.backgroundColor = "blue";
+      eraseBtn.style.backgroundColor = "rgb(114, 242, 217)";
       toggleOn = true;
 
-      rainbowBtn.style.backgroundColor = "white";
+      rainbowBtn.style.backgroundColor = "lightgray";
       toggleRainbowButton();
     } else {
       allowSolidSketch();
-      eraseBtn.style.backgroundColor = "white";
+      eraseBtn.style.backgroundColor = "lightgray";
       toggleOn = false;
     }
   });
@@ -176,9 +176,9 @@ function resetRainbowErase() {
   const eraseBtn = document.querySelector("#erase-btn");
   const rainbowBtn = document.querySelector("#rainbow-btn");
 
-  eraseBtn.style.backgroundColor = "white";
+  eraseBtn.style.backgroundColor = "lightgray";
   toggleEraseButton();
-  rainbowBtn.style.backgroundColor = "white";
+  rainbowBtn.style.backgroundColor = "lightgray";
   toggleRainbowButton();
 }
 

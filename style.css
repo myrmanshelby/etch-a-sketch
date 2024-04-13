@@ -3,6 +3,14 @@ reddish: rgb(242, 122, 114) */
 
 body {
   background-color: rgb(221, 245, 240);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: rgb(13, 38, 53);
+}
+
+h1 {
+  font-family: "Brush Script MT", "Brush Script Std", cursive;
+  color: rgb(13, 38, 53);
 }
 
 .container {
@@ -12,10 +20,12 @@ body {
   display: flex;
 
   width: 900px;
+  border-radius: 2%;
 }
 
 .board {
   border: solid rgb(255, 247, 86) 12px;
+  border-radius: 2%;
 
   width: 600px;
   height: 600px;
@@ -26,7 +36,7 @@ body {
 }
 
 .square {
-  background-color: white;
+  background-color: lightgray;
   margin: 0px;
   width: 5px;
   height: 5px;
@@ -36,10 +46,11 @@ body {
   appearance: none;
   width: 200px;
   height: 20px;
-  background: gray;
+  background: lightgray;
   outline: none;
   border-radius: 12px;
   direction: rtl;
+  border: solid rgb(255, 247, 86) 3px;
 }
 
 .slider::-webkit-slider-thumb {
@@ -47,6 +58,45 @@ body {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: white;
+  background: rgb(242, 122, 114);
   cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  background-color: lightgray;
+  color: rgb(13, 38, 53);
+  width: 140px;
+  margin: 10px;
+  padding: 10px;
+
+  border: solid rgb(255, 247, 86) 5px;
+  border-radius: 20%;
+}
+
+#color-picker {
+  border: solid rgb(255, 247, 86) 5px;
+  width: 40px;
+  height: 25px;
+  border-radius: 15%;
+}
+
+input[type="color"] {
+  border: none;
+  width: 32px;
+  height: 32px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
 }
