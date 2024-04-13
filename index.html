@@ -10,31 +10,38 @@
   </head>
   <body>
     <h1>Etch-a-Sketch</h1>
-    <div class="game"></div>
-    <div class="controls">
-      <div class="pen-size">
-        <h3>Select Pen Size:</h3>
-        <p>Note: This will reset your art</p>
-        <input
-          type="range"
-          class="slider"
-          id="number-of-squares"
-          name="number-of-squares"
-          min="2"
-          max="100"
-          value="16"
-        />
-      </div>
-      <div class="pen-color">
-        <div class="color-box">
-          <input type="color" id="color-picker">
-          <span>Pen color</span>
+    <div class="container">
+      <div class="controls">
+        <div class="pen-size">
+          <h3>Select Pen Size:</h3>
+          <p>Note: This will reset your art</p>
+          <input
+            type="range"
+            class="slider"
+            id="number-of-squares"
+            name="number-of-squares"
+            min="2"
+            max="100"
+            value="16"
+          />
+        </div>
+        <div class="pen-color">
+          <div class="color-box">
+            <input type="color" id="color-picker" />
+            <span>Pen color</span>
+          </div>
+        </div>
+        <div class="buttons">
+          <button type="button" class="toggle-button" id="rainbow-btn">
+            Rainbow
+          </button>
+          <button type="button" class="toggle-button" id="erase-btn">
+            Erase
+          </button>
+          <button type="button" id="clear-btn">Reset</button>
         </div>
       </div>
-        <button type="button" class="toggle-button" id="rainbow-btn">Rainbow</button>
-        <button type="button" class="toggle-button" id="erase-btn">Erase</button>
-      </div>
-      <button type="button" id="clear-btn">Reset</button>
+      <div class="game"></div>
     </div>
   </body>
 </html>

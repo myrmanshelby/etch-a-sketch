@@ -1,5 +1,22 @@
+/*COLORS
+reddish: rgb(242, 122, 114) */
+
+body {
+  background-color: rgb(221, 245, 240);
+}
+
+.container {
+  background-color: rgb(242, 122, 114);
+
+  padding: 30px;
+  display: flex;
+
+  width: 900px;
+}
+
 .board {
-  border: solid black;
+  border: solid rgb(255, 247, 86) 12px;
+
   width: 600px;
   height: 600px;
 }

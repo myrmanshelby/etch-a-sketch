@@ -1,21 +1,9 @@
-/* TO DO TOMORROW:
-- BUG: WHEN ERASE AND RAINBOW BUTTONS ARE CLICKED, IT'S IMPOSSIBLE TO 
-GO BACK TO SOLID COLOR. ERASE AND RAINBOW BUTTONS NEED TO CHANGE
-TO A TOGGLE, THAT ERASE OR DO RAINBOW WHEN ON, BUT DO SOLID SKETCH WHEN OFF
-
-Something like: 
-IF (toggle on):
-  allowErase/allowRainbowSketch
-IF (toggle off):
-  allowSolidSketch();
-
-then need toggle rainbow and erase off when reset is clicked or when pen size is changed
-*/
+// Creating game
 initializeGrid();
 allowChangePenSize();
 allowSolidSketch();
 
-// buttons
+// Enabling buttons
 toggleEraseButton();
 enableClearButton();
 toggleRainbowButton();
