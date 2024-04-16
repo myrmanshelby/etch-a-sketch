@@ -12,23 +12,36 @@
     <h1>Etch-a-Sketch</h1>
     <div class="container">
       <div class="controls">
+        <div class="controls-text controls-header">Controls</div>
         <div class="pen-size">
-          <h3>Select Pen Size:</h3>
-          <p>Note: This will reset your art</p>
-          <input
-            type="range"
-            class="slider"
-            id="number-of-squares"
-            name="number-of-squares"
-            min="2"
-            max="100"
-            value="16"
-          />
+          <div>
+            <p class="controls-text">Pen Size</p>
+            <div class="controls-text instructions">
+              Select pen size by moving the slider below. This will erase your
+              current sketch.
+            </div>
+          </div>
+          <div class="slider-container">
+            <input
+              type="range"
+              class="slider"
+              id="number-of-squares"
+              name="number-of-squares"
+              min="2"
+              max="100"
+              value="16"
+            />
+            <ul class="slider-labels">
+              <li>Smaller</li>
+              <li>Larger</li>
+            </ul>
+          </div>
         </div>
+        <p class="controls-text">Pen Color</p>
         <div class="pen-color">
           <div class="color-box">
             <input type="color" id="color-picker" />
-            <span>Pen color</span>
+            <span class="pen-color-text">Custom Color</span>
           </div>
         </div>
         <div class="buttons">
