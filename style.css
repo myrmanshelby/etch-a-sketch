@@ -126,14 +126,9 @@ button {
 .color-box {
   font-weight: 700;
   font-size: 15px;
-  background-color: lightgray;
   color: rgb(13, 38, 53);
-  width: 180px;
-  margin: 10px;
   padding: 10px;
-  border: solid rgb(255, 247, 86) 5px;
-  border-radius: 20%;
-  cursor: pointer;
+  margin-top: -10px;
 }
 
 #color-picker {
@@ -141,6 +136,7 @@ button {
   width: 40px;
   height: 25px;
   border-radius: 15%;
+  cursor: pointer;
 }
 
 input[type="color"] {

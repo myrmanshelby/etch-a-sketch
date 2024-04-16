@@ -7,6 +7,7 @@ allowSolidSketch();
 toggleEraseButton();
 enableClearButton();
 toggleRainbowButton();
+toggleSolidButton();
 
 function createGrid(squaresPerSide) {
   const board = document.createElement("div");
